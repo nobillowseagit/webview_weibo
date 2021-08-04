@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WebView App</string>
+    <string name="permission_camera_rationale">rationale</string>
+    <string name="button_allow">allow</string>
+    <string name="button_deny">deny</string>
+    <string name="permission_camera_denied">denied</string>
+    <string name="permission_camera_neverask">neverask</string>
+
+</resources>
