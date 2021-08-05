@@ -35,3 +35,52 @@ If you want to create a local HTML5 android app
 	```
 
 2. put all your files (including your `index.html`) in the `assets` directory
+
+
+
+lite-iconf-like
+var div2 = document.getElementsByClassName('lite-iconf-like
+')[0];
+
+setTimeout(function(){ var div2 = document.getElementsByClassName('lite-iconf-like
+')[0] }, 3000);
+
+setTimeout(function(){ document.getElementsByClassName('lite-iconf-like
+')[0].click() }, 3000);
+
+setTimeout(function(){ document.getElementsByClassName('lite-iconf-like')[0].click(); document.getElementsByClassName('m-font m-font-arrow-left')[0].click(); }, 3000);
+
+
+
+function sleep (time) {
+	return new Promise((resolve) => setTimeout(resolve, time));
+}
+
+sleep(2000).then(() => {
+	document.getElementsByClassName('lite-iconf-like')[0].click();   
+})
+
+sleep(2000).then(() => {
+	document.getElementsByClassName('m-font m-font-arrow-left')[0].click();    
+})
+
+document.getElementsByClassName('weibo-text')[0].click();
+
+setTimeout(function(){ document.getElementsByClassName('lite-iconf-like')[0].click()}, 3000);
+
+setTimeout(function(){ document.getElementsByClassName('m-font m-font-arrow-left')[0].click()}, 3000);
+
+
+function sleep (time) {
+	return new Promise((resolve) => setTimeout(resolve, time));
+}
+
+(async function() {
+	document.getElementsByClassName('weibo-text')[0].click();
+	await sleep(1000);
+	document.getElementsByClassName('lite-iconf-like')[0].click();
+	await sleep(1000);
+	document.getElementsByClassName('m-font m-font-arrow-left')[0].click();    
+})();
+
+

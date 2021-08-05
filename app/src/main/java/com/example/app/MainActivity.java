@@ -231,7 +231,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private MyTimeTask task;
 
     private void setTimer(){
-        task =new MyTimeTask(3000, new TimerTask() {
+        task =new MyTimeTask(10000, new TimerTask() {
             @Override
             public void run() {
                 mHandler.sendEmptyMessage(TIMER);
@@ -264,16 +264,46 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //                            "}" +
 //                            ")()";
 
-                    String js6 = "javascript:(" +
-                            "async function() {\n" +
-                            "document.getElementsByClassName('weibo-text')[0].click();\n" +
-                            "await setTimeout(function(){}, 3000);\n" +
-                            "document.getElementsByClassName('lite-iconf-like')[0].click();\n" +
-                            "await setTimeout(function(){}, 3000);\n" +
-                            "document.getElementsByClassName('m-font m-font-arrow-left')[0].click();\n" +
-                            "}" +
-                            ")()";
-                    mWebView.loadUrl(js6);
+//                    String js6 = "javascript:(" +
+//                            "async function() {\n" +
+//                            "document.getElementsByClassName('weibo-text')[0].click();\n" +
+//                            "await setTimeout(function(){}, 3000);\n" +
+//                            "document.getElementsByClassName('lite-iconf-like')[0].click();\n" +
+//                            "await setTimeout(function(){}, 3000);\n" +
+//                            "document.getElementsByClassName('m-font m-font-arrow-left')[0].click();\n" +
+//                            "}" +
+//                            ")()";
+//
+//                    mWebView.loadUrl(js6);
+
+                    mWebView.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+//                        String js6 = "javascript:(" +
+//                                "function sleep (time) {\n" +
+//                                "return new Promise((resolve) => setTimeout(resolve, time));\n" +
+//                                "}\n" +
+//                                "async function() {" +
+//                                "document.getElementsByClassName('weibo-text')[0].click();\n" +
+//                                "await sleep(1000);\n" +
+//                                "document.getElementsByClassName('lite-iconf-like')[0].click();\n" +
+//                                "await sleep(1000);\n" +
+//                                "document.getElementsByClassName('m-font m-font-arrow-left')[0].click();\n" +
+//                                "})()";
+
+                            String js6 = "javascript:(" +
+                                    "async function() {\n" +
+                                    "document.getElementsByClassName('weibo-text')[0].click();\n" +
+                                    "await new Promise((resolve) => setTimeout(resolve, 2000));\n" +
+                                    "document.getElementsByClassName('lite-iconf-like')[0].click();\n" +
+                                    "await new Promise((resolve) => setTimeout(resolve, 2000));\n" +
+                                    "document.getElementsByClassName('m-font m-font-arrow-left')[0].click();\n" +
+                                    "}" +
+                                    ")()";
+
+                            mWebView.loadUrl(js6);
+                        }
+                    }, 1000);
 
 
                     break;
